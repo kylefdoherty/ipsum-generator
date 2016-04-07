@@ -22,7 +22,7 @@ class GeneratedIpsum extends Component {
     }
 
     return(
-      <div>
+      <div className="card-panel">
         { ipsumChunks }
       </div>
     );
