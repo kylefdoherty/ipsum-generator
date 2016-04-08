@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
+import Clipboard from 'clipboard';
 
 class GeneratedIpsum extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      buttonText: 'Click to Copy'
+    }
+  }
   render() {
-    var { speech, paragraphs} = this.props;
-    var ipsumChunks = [];
+    const { speech, paragraphs} = this.props;
+    const ipsumChunks = [];
+    const clipboard = new Clipboard('.copy-btn');
+
+    clipboard.on('success', (e) => {
+      this.setState({
+        buttonText: 'Copied!'
+      })
+    });
 
     for(var i = 0; i < paragraphs; i++) {
       let index = 0;
@@ -22,8 +36,14 @@ class GeneratedIpsum extends Component {
     }
 
     return(
-      <div className="card-panel">
-        { ipsumChunks }
+      <div className='generated-ipsum'>
+        <h4>3. Copy Pasta</h4>
+        <a href='#!' data-clipboard-target='#speech-text' className='copy-btn btn red lighten-1 waves-effect waves-red-lighten-4'>
+          { this.state.buttonText }
+        </a>
+        <div className='card-panel' id='speech-text'>
+          { ipsumChunks }
+        </div>
       </div>
     );
   }
