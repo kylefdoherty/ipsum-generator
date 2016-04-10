@@ -10,7 +10,7 @@ const HeroContainer = () => (
     </div>
     <div className="center-align hero-image col s12 m6">
       <img className="" src={'http://placehold.it/300x300'} />
-      <p>(image of Trump Yelling)</p>
+      <p>(Image of Trump Yelling)</p>
     </div>
   </div>
 
