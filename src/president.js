@@ -13,7 +13,6 @@ class President extends Component {
           <p>{ displayName }</p>
         </label>
       </div>
-
     )
   }
 }

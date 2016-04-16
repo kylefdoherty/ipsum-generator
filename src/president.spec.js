@@ -18,13 +18,25 @@ describe('president', () => {
 
   context('when selected is true', () => {
     it('has the class z-depth-1', () => {
+      const renderer = TestUtils.createRenderer();
+      renderer.render(<President selected={true} />)
 
+      const output = renderer.getRenderOutput().props.children.props.children[0].props.className;
+      const expected = 'z-depth-1';
+
+      expect(output).toEqual(expected)
     })
   })
 
   context('when selected is false', () => {
     it('has the class z-depth-3', () => {
+      const renderer = TestUtils.createRenderer();
+      renderer.render(<President selected={false} />)
 
+      const output = renderer.getRenderOutput().props.children.props.children[0].props.className;
+      const expected = 'z-depth-3';
+
+      expect(output).toEqual(expected)
     })
   })
 });
