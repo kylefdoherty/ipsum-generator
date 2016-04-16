@@ -21,10 +21,10 @@ describe('president', () => {
       const renderer = TestUtils.createRenderer();
       renderer.render(<President selected={true} />)
 
-      const output = renderer.getRenderOutput().props.children.props.children[0].props.className;
+      const output = renderer.getRenderOutput();
       const expected = 'z-depth-1';
 
-      expect(output).toEqual(expected)
+      expect(output).toIncludeJSX(expected)
     })
   })
 
@@ -33,10 +33,10 @@ describe('president', () => {
       const renderer = TestUtils.createRenderer();
       renderer.render(<President selected={false} />)
 
-      const output = renderer.getRenderOutput().props.children.props.children[0].props.className;
+      const output = renderer.getRenderOutput();
       const expected = 'z-depth-3';
 
-      expect(output).toEqual(expected)
+      expect(output).toIncludeJSX(expected)
     })
   })
 });
